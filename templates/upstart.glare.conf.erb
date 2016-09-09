@@ -1,0 +1,9 @@
+# Glare api service 
+#
+
+start on stopped rc RUNLEVEL=[2345]
+
+stop on runlevel [!2345]
+
+respawn
+exec <%= @srv_bin %> --config-dir <%= @config_dir %>

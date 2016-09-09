@@ -1,0 +1,16 @@
+{
+  "name": "openstack-glare",
+  "version": "0.0.1",
+  "author": "OpenStack",
+  "summary": "Puppet module for OpenStack App Catalog",
+  "license": "Apache 2.0",
+  "source": "git://git.openstack.org/openstack/puppet-glare.git",
+  "project_page": "http://docs.openstack.org/infra/system-config",
+  "issues_url": "https://storyboard.openstack.org/#!/project/817",
+  "dependencies": [
+    { "name": "puppetlabs/inifile", "version_requirement": ">=1.0.0 <2.0.0" },
+    { "name": "puppetlabs/stdlib", "version_requirement": ">=4.2.0 <5.0.0" },
+    { "name": "openstack/openstacklib", "version_requirement": ">=9.2.0 <10.0.0" },
+    { "name": "openstack/oslo", "version_requirement": ">=9.2.0 <10.0.0" }
+  ]
+}
