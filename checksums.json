@@ -1,0 +1,14 @@
+{
+  "Gemfile": "c40db9cec01c15a06e0c64f108a07396",
+  "LICENSE": "3b83ef96387f14655fc854ddc3c6bd57",
+  "README.md": "68a1a760ec1a25126dc6c00d683e6168",
+  "Rakefile": "8750dc2f0342d7d09229bfc93ab48eda",
+  "manifests/init.pp": "a95d233a94b208d04b269e5c06e0bd0b",
+  "metadata.json": "d28ec22b374cee2b17b69d7f72707a33",
+  "spec/acceptance/nodesets/default.yml": "404a5cc3587b82643cf14447bf223b87",
+  "spec/acceptance/nodesets/nodepool-centos7.yml": "3987f6b2a4847fbf46c4698420bfe6e3",
+  "spec/acceptance/nodesets/nodepool-trusty.yml": "26e894cea9b1ab165957c83089fb3eb8",
+  "spec/spec_helper_acceptance.rb": "3402c04f48fd4d7cf33c615874f5ad83",
+  "templates/local_settings.erb": "7da9eb92ceb9884c1f06a5e78d5c9a54",
+  "templates/vhost.erb": "80ff2b4bab12db146ac29ab29caf0de0"
+}
