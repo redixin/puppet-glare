@@ -234,11 +234,11 @@ class glare (
   }
 
   # SSL Options
-  glare_config {
-    'DEFAULT/cert_file': value => $cert_file;
-    'DEFAULT/key_file' : value => $key_file;
-    'DEFAULT/ca_file'  : value => $ca_file;
-  }
+# glare_config {
+#    'DEFAULT/cert_file': value => $cert_file;
+#    'DEFAULT/key_file' : value => $key_file;
+#    'DEFAULT/ca_file'  : value => $ca_file;
+#  }
 
   if $manage_service {
     if $enabled {
