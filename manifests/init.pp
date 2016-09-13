@@ -183,7 +183,6 @@ class glare (
   $token_cache_time          = undef,
 ) {
 
-#  include ::glance::policy
 #  include ::glare::db
 #  include ::glare::logging
 

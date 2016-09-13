@@ -3,7 +3,7 @@
 
 class glare::params {
 
-  $glare_service_name = 'glare_api'
+  $glare_service_name = 'glare-api'
   $config_dir         = '/etc/glare'
   $log_dir            = '/var/log/glare'
   $work_dir           = '/var/lib/glare'
