@@ -18,6 +18,7 @@ class glare::pip_package (
   $work_dir     = '/var/lib/glare',
   $srv_bin      = '/usr/local/bin/glare-api',
   $user         = 'glare',
+  $group        = 'glare',
 
 ) {
     package { "$package_name":
@@ -25,12 +26,17 @@ class glare::pip_package (
       provider  => 'pip',
     }
 
-    user {"$user":
+    user { "$user":
       ensure    => present,
       home      => "$work_dir",
       shell     => '/bin/false',
       comment   => 'Glare daemon user',
       require   => Package[$package_name]
+    }
+
+    group { "$group":
+      ensure    => present,
+      require   => User["$user"],
     }
 
     file { "$config_dir":
@@ -39,16 +45,18 @@ class glare::pip_package (
 
     file { "$log_dir":
       ensure    => directory,
-      owner     => "glare",
+      owner     => "$user",
+      group     => "$group",
       mode      => "750",
-      require   => User["$user"],
+      require   => Group["$group"],
     }
 
     file { "$work_dir":
       ensure    => directory,
-      owner     => "glare",
+      owner     => "$user",
+      group     => "$group",
       mode      => "750",
-      require   => User["$user"],
+      require   => Group["$group"],
     }
 
     file { 'glare-paste.ini':
@@ -66,7 +74,7 @@ class glare::pip_package (
           path      => "/etc/init/${::glare::params::glare_service_name}.conf",
           ensure    => present,
           content   => template('glare/upstart.glare.conf.erb'),
-          require   => User["$user"],
+          require   => Group["$group"],
         }
       }
       'systemd': {
@@ -74,7 +82,7 @@ class glare::pip_package (
           path      => "/etc/systemd/system/${::glare::params::glare_service_name}.conf",
           ensure    => present,
           content   => template('glare/systemd.glare.conf.erb'),
-          require   => User["$user"],
+          require   => Group["$group"],
         }
       }
     }
