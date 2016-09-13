@@ -183,6 +183,7 @@ class glare (
   $token_cache_time          = undef,
 ) {
 
+# TODO
 #  include ::glare::db
 #  include ::glare::logging
 
@@ -232,12 +233,13 @@ class glare (
     include ::glare::authtoken
   }
 
-  # SSL Options
-# glare_config {
-#    'DEFAULT/cert_file': value => $cert_file;
-#    'DEFAULT/key_file' : value => $key_file;
-#    'DEFAULT/ca_file'  : value => $ca_file;
-#  }
+ # TO_DO
+ # SSL Options
+ # glare_config {
+ #    'DEFAULT/cert_file': value => $cert_file;
+ #    'DEFAULT/key_file' : value => $key_file;
+ #    'DEFAULT/ca_file'  : value => $ca_file;
+ #  }
 
   if $manage_service {
     if $enabled {

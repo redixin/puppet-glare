@@ -12,19 +12,22 @@ Glare_config {
 }
 
 glare_config {
-  'database/connection':     value  => "sqlite:////${::glare::params::work_dir}/glare.sqlite";
+  'database/connection':     value  => "sqlite:///${::glare::params::work_dir}/glare.sqlite";
   'oslo_policy/policy_file': value  => 'glare-policy.json';
 }
-
 
 file { "${::glare::params::config_dir}/glare-policy.json":
   content       => "{\n  \"context_is_admin\": \"role:app-catalog-core\"  \n}",
   require       => Class[ '::glare::pip_package' ],
 }
 
-
+exec { "glare-db-manage --config-file ${::glare::params::config_dir}/glare.conf upgrade " :
+  path        => ["/usr/bin", "/usr/sbin" , "/usr/local/bin" ],
+  require       => Class[ '::glare::pip_package' ],
+}
 
 class { 'glare':
   package_name  => "$glare_pip",
   require       => Class[ '::glare::pip_package' ],
 }
+
